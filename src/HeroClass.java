@@ -1,10 +1,12 @@
-public class HeroClass {
+public abstract class HeroClass {
+    private int id;
     private String name;
     private int damage;
     private int health;
     private int money;
 
-    public HeroClass(String name ,int damage, int health, int money) {
+    public HeroClass(int id, String name ,int damage, int health, int money) {
+        this.id =id;
         this.name = name;
         this.damage = damage;
         this.health = health;
@@ -41,5 +43,13 @@ public class HeroClass {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

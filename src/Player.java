@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 public class Player {
     private int damage;
     private int health;
     private int money;
     private String name;
     private String characterClass;
+    Scanner input = new Scanner(System.in);
 
     public Player(String name) {
         this.name = name;
@@ -13,10 +16,40 @@ public class Player {
 
         HeroClass[] heroList ={new Yasuo(),new Ashe(),new Garen()};
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        for(HeroClass heroClass : heroList);
-        System.out.println(heroList.getClass());
-    }
+        for (HeroClass heroes : heroList){
+            System.out.println("ID "+ heroes.getId()+
+                    "\t Hero : " + heroes.getName() +
+                    "\t Damage : " + heroes.getDamage()+" " +
+                    "\t Healt : " +heroes.getHealth()+ "\t" +
+                    "\t Money : " + heroes.getMoney());
+        }
+        System.out.print("Pick Your Hero Class ! : ");
+        int selectHero = input.nextInt();
+        switch (selectHero){
+            case 1:
+            initPlayer(new Yasuo());
+            break;
+            case 2:
+            initPlayer(new Ashe());
+            break;
+            case 3:
+            initPlayer(new Garen());
+            break;
+            default:
+                initPlayer(new Yasuo());
+        }
+        System.out.println("Your hero : "+ this.getName() +
+                ",    Damage : " +this.getDamage() +
+                ",   Health : " + this.getHealth() +
+                ",   Money : "+ this.getMoney());
 
+    }
+    public void initPlayer(HeroClass pickHero){
+        this.setDamage(pickHero.getDamage());
+        this.setHealth(pickHero.getHealth());
+        this.setMoney(pickHero.getMoney());
+        this.setName(pickHero.getName());
+    }
     public int getDamage() {
         return damage;
     }

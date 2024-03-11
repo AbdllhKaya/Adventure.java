@@ -8,7 +8,7 @@ public class Game {
         String playerNickName = input.nextLine();
         Player player = new Player(playerNickName);
         System.out.println(player.getName() + " Welcome the Wild World");
-        System.out.println("Pick Your Hero Class ! : ");
+
         player.selectChar();
     }
 }
